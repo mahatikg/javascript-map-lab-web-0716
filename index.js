@@ -22,11 +22,10 @@ const zebraStripes = [
   { width: 7.31, color: null },
 ];
 
-var sortedRobots = map(robots, transformation(robot){
-  if knownDecepticons.includes(robot.name){
-    robot.alliance == 'decepticon'
-  } else {
-    robot.alliance == 'autobot'
-  }
-    
-})
+
+const coloredZebraStripes = zebraStripes.map((stripe, index) => {
+  const isEven = (index % 2) === 0;
+  return Object.assign({}, stripe, {
+    color: isEven ? 'black' : 'white'
+  });
+});
